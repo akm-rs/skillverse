@@ -12,7 +12,8 @@
         "architecture",
         "decisions"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/akm-rs/skillverse"
     },
     {
       "id": "algorithmic-art",
@@ -21,7 +22,8 @@
       "description": "Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations.",
       "core": false,
       "tags": [],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/anthropics/skills"
     },
     {
       "id": "archive-artifacts",
@@ -34,7 +36,8 @@
         "cleanup",
         "archive"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/akm-rs/skillverse"
     },
     {
       "id": "bash-defensive-patterns",
@@ -45,7 +48,8 @@
       "tags": [
         "bash"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/wshobson/agents"
     },
     {
       "id": "brainstorming",
@@ -57,7 +61,8 @@
         "design",
         "plan"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "brand-yml",
@@ -66,7 +71,8 @@
       "description": ">",
       "core": false,
       "tags": [],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/posit-dev/skills"
     },
     {
       "id": "canvas-design",
@@ -75,7 +81,8 @@
       "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations.",
       "core": false,
       "tags": [],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/anthropics/skills"
     },
     {
       "id": "cli",
@@ -86,7 +93,8 @@
       "tags": [
         "R"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/posit-dev/skills"
     },
     {
       "id": "content-creator",
@@ -98,7 +106,8 @@
         "creative",
         "content"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "community (awesome-llm-apps)"
     },
     {
       "id": "cran-extrachecks",
@@ -111,7 +120,8 @@
         "package",
         "cran"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/posit-dev/skills"
     },
     {
       "id": "create-release-checklist",
@@ -124,7 +134,8 @@
         "package",
         "cran"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/posit-dev/skills"
     },
     {
       "id": "critical-code-reviewer",
@@ -135,7 +146,8 @@
       "tags": [
         "review"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/posit-dev/skills/"
     },
     {
       "id": "customizing-vectors-r",
@@ -160,7 +172,8 @@
           ".Rmd",
           ".qmd"
         ]
-      }
+      },
+      "source": "https://github.com/jeremy-allen/claude-skills"
     },
     {
       "id": "describe-design",
@@ -171,7 +184,8 @@
       "tags": [
         "design"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/posit-dev/skills/"
     },
     {
       "id": "designing-oop-r",
@@ -198,7 +212,8 @@
           ".Rmd",
           ".qmd"
         ]
-      }
+      },
+      "source": "https://github.com/jeremy-allen/claude-skills"
     },
     {
       "id": "developing-packages-r",
@@ -223,7 +238,8 @@
           ".Rmd",
           ".qmd"
         ]
-      }
+      },
+      "source": "https://github.com/jeremy-allen/claude-skills"
     },
     {
       "id": "dispatching-parallel-agents",
@@ -236,7 +252,8 @@
         "agents",
         "concurrency"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "docx",
@@ -245,7 +262,8 @@
       "description": "\"Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of \\\"Word doc\\\", \\\"word document\\\", \\\".docx\\\", or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polished Word document. If the user asks for a \\\"report\\\", \\\"memo\\\", \\\"letter\\\", \\\"template\\\", or similar deliverable as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation.\"",
       "core": false,
       "tags": [],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/anthropics/skills"
     },
     {
       "id": "editor",
@@ -256,7 +274,8 @@
       "tags": [
         "writing"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "community (awesome-llm-apps)"
     },
     {
       "id": "email-drafter",
@@ -269,7 +288,8 @@
         "writing",
         "professional"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "community (awesome-llm-apps)"
     },
     {
       "id": "excalidraw-diagram-generator",
@@ -278,7 +298,8 @@
       "description": "'Generate Excalidraw diagrams from natural language descriptions. Use when asked to \"create a diagram\", \"make a flowchart\", \"visualize a process\", \"draw a system architecture\", \"create a mind map\", or \"generate an Excalidraw file\". Supports flowcharts, relationship diagrams, mind maps, and system architecture diagrams. Outputs .excalidraw JSON files that can be opened directly in Excalidraw.'",
       "core": false,
       "tags": [],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/github/awesome-copilot"
     },
     {
       "id": "executing-plans",
@@ -291,7 +312,8 @@
         "execution",
         "checkpoints"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "find-skills",
@@ -300,7 +322,8 @@
       "description": "Helps users discover and install agent skills when they ask questions like \"how do I do X\", \"find a skill for X\", \"is there a skill that can...\", or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable skill.",
       "core": true,
       "tags": [],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/vercel-labs/skills/"
     },
     {
       "id": "finishing-a-development-branch",
@@ -314,7 +337,8 @@
         "merge",
         "pr"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "frontend-design",
@@ -327,7 +351,8 @@
         "ui",
         "creative"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/anthropics/skills"
     },
     {
       "id": "generate-rpkg-consumer-skill",
@@ -338,7 +363,8 @@
       "tags": [
         "r"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/akm-rs/skillverse"
     },
     {
       "id": "git-commit",
@@ -349,7 +375,8 @@
       "tags": [
         "git"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/github/awesome-copilot/"
     },
     {
       "id": "implementing-team",
@@ -362,7 +389,8 @@
         "team",
         "implementation"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/akm-rs/skillverse"
     },
     {
       "id": "internal-comms",
@@ -373,7 +401,8 @@
       "tags": [
         "writing"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/anthropics/skills"
     },
     {
       "id": "lifecycle",
@@ -384,7 +413,8 @@
       "tags": [
         "r"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/posit-dev/skills"
     },
     {
       "id": "metaprogramming-rlang",
@@ -409,7 +439,8 @@
           ".Rmd",
           ".qmd"
         ]
-      }
+      },
+      "source": "https://github.com/jeremy-allen/claude-skills"
     },
     {
       "id": "microcopy",
@@ -422,7 +453,8 @@
         "writing",
         "design"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/lobehub/lobehub/tree/canary/.agents/skills"
     },
     {
       "id": "nano-banana-pro",
@@ -434,7 +466,8 @@
         "creative",
         "image"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "community"
     },
     {
       "id": "optimizing-r",
@@ -459,7 +492,8 @@
           ".Rmd",
           ".qmd"
         ]
-      }
+      },
+      "source": "https://github.com/jeremy-allen/claude-skills"
     },
     {
       "id": "pdf",
@@ -468,7 +502,8 @@
       "description": "Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks, creating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images, and OCR on scanned PDFs to make them searchable. If the user mentions a .pdf file or asks to produce one, use this skill.",
       "core": false,
       "tags": [],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/anthropics/skills"
     },
     {
       "id": "planning-team",
@@ -481,7 +516,8 @@
         "team",
         "planning"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/akm-rs/skillverse"
     },
     {
       "id": "polyglot-test-agent",
@@ -492,7 +528,8 @@
       "tags": [
         "test"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/github/awesome-copilot/tree/main/skills/"
     },
     {
       "id": "pptx",
@@ -501,7 +538,8 @@
       "description": "\"Use this skill any time a .pptx file is involved in any way — as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx file (even if the extracted content will be used elsewhere, like in an email or summary); editing, modifying, or updating existing presentations; combining or splitting slide files; working with templates, layouts, speaker notes, or comments. Trigger whenever the user mentions \\\"deck,\\\" \\\"slides,\\\" \\\"presentation,\\\" or references a .pptx filename, regardless of what they plan to do with the content afterward. If a .pptx file needs to be opened, created, or touched, use this skill.\"",
       "core": false,
       "tags": [],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/anthropics/skills"
     },
     {
       "id": "pr-create",
@@ -513,7 +551,8 @@
         "git",
         "github"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/posit-dev/skills/"
     },
     {
       "id": "quarto-authoring",
@@ -525,7 +564,8 @@
         "quarto",
         "writing"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/posit-dev/skills"
     },
     {
       "id": "r-data-science",
@@ -537,7 +577,8 @@
         "r",
         "data-science"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/jaredlander/useful/tree/master/.claude/skills/r-data-science"
     },
     {
       "id": "receiving-code-review",
@@ -550,7 +591,8 @@
         "feedback",
         "code-quality"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "requesting-code-review",
@@ -563,7 +605,8 @@
         "pr",
         "quality"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "rlang-conditions",
@@ -576,7 +619,8 @@
         "rlang",
         "error-handling"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/jsperger/llm-r-skills/tree/main/skills/"
     },
     {
       "id": "rust-async-patterns",
@@ -588,7 +632,8 @@
         "rust",
         "async"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/wshobson/agents/"
     },
     {
       "id": "shiny-bslib-theming",
@@ -602,7 +647,8 @@
         "ui",
         "creative"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/posit-dev/skills"
     },
     {
       "id": "shiny-bslib",
@@ -615,7 +661,8 @@
         "shiny",
         "ui"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/posit-dev/skills"
     },
     {
       "id": "shiny-modules-share-data-r6",
@@ -636,7 +683,8 @@
           "NAMESPACE",
           "*.Rproj"
         ]
-      }
+      },
+      "source": "skillverse"
     },
     {
       "id": "skill-creator",
@@ -647,7 +695,8 @@
       "tags": [
         "llm"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/anthropics/skills"
     },
     {
       "id": "solve-batch",
@@ -665,7 +714,8 @@
         "files": [
           ".github/"
         ]
-      }
+      },
+      "source": "https://github.com/akm-rs/skillverse"
     },
     {
       "id": "solve-issue",
@@ -683,7 +733,8 @@
         "files": [
           ".github/"
         ]
-      }
+      },
+      "source": "https://github.com/akm-rs/skillverse"
     },
     {
       "id": "subagent-driven-development",
@@ -696,7 +747,8 @@
         "subagent",
         "delegation"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "supabase-postgres-best-practices",
@@ -708,7 +760,8 @@
         "db",
         "postgres"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/supabase/agent-skills"
     },
     {
       "id": "systematic-debugging",
@@ -721,7 +774,8 @@
         "bugs",
         "root-cause"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "technical-writer",
@@ -734,7 +788,8 @@
         "writing",
         "technical"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "community (awesome-llm-apps)"
     },
     {
       "id": "teradata-tpt-cli",
@@ -748,7 +803,8 @@
         "database",
         "etl"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/akm-rs/skillverse"
     },
     {
       "id": "test-driven-development",
@@ -761,7 +817,8 @@
         "testing",
         "red-green-refactor"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "testing-r-packages",
@@ -774,7 +831,8 @@
         "test",
         "package"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/posit-dev/skills"
     },
     {
       "id": "toto",
@@ -789,7 +847,8 @@
       "triggers": {
         "files": [],
         "extensions": []
-      }
+      },
+      "source": "https://github.com/rplsmn/skillverse"
     },
     {
       "id": "triage-issues",
@@ -806,7 +865,8 @@
         "files": [
           ".github/"
         ]
-      }
+      },
+      "source": "https://github.com/akm-rs/skillverse"
     },
     {
       "id": "using-git-worktrees",
@@ -819,7 +879,8 @@
         "worktrees",
         "isolation"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "using-superpowers",
@@ -832,7 +893,8 @@
         "discovery",
         "activation"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "verification-before-completion",
@@ -845,7 +907,8 @@
         "done",
         "quality"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "vitest",
@@ -858,7 +921,8 @@
         "test",
         "vite"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/antfu/skills"
     },
     {
       "id": "webapp-testing",
@@ -871,7 +935,8 @@
         "test",
         "headless"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/anthropics/skills"
     },
     {
       "id": "writing-plans",
@@ -884,7 +949,8 @@
         "implementation",
         "tasks"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "writing-skills",
@@ -897,7 +963,8 @@
         "creation",
         "tdd"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "writing-tidyverse-r",
@@ -922,7 +989,8 @@
           ".Rmd",
           ".qmd"
         ]
-      }
+      },
+      "source": "https://github.com/jeremy-allen/claude-skills"
     },
     {
       "id": "xlsx",
@@ -933,7 +1001,8 @@
       "tags": [
         "excel"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/anthropics/skills"
     },
     {
       "id": "code-reviewer",
@@ -946,7 +1015,8 @@
         "quality",
         "standards"
       ],
-      "triggers": {}
+      "triggers": {},
+      "source": "https://github.com/obra/superpowers"
     }
   ]
 }

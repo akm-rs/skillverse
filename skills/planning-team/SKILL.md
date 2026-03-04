@@ -22,7 +22,7 @@ Orchestrator (you — stays lean, never compacts)
 │
 ├── Phase 0: Context Gathering
 │   ├── Explore subagent → reads source files + project docs
-│   └── Skill Discovery → specs-sync search + load
+│   └── Skill Discovery → akm skills search + load
 │
 ├── Phase 1: Brainstorming (you + user, interactive)
 │   ├── Ask questions one at a time
@@ -63,10 +63,10 @@ Before engaging the user:
 
 1. Read project docs (CLAUDE.md, AGENTS.md, README) for conventions and structure
 2. Dispatch an **Explore subagent** (`subagent_type: Explore`) to read source files relevant to the user's prompt
-3. Identify the artifacts directory: `~/.artifacts/<project>/plans/` or the project's designated plans folder
-4. **Discover relevant skills**: Run `specs-sync search <terms>` (using terms from the project's stack, frameworks, domain) to find skills that provide expertise for this project's technology. For each relevant skill, run `specs-sync load <id>` to hotload it into the current session. Then read the loaded skills to understand patterns, idioms, and common pitfalls — this knowledge informs review criteria synthesis in Phase 1.
+3. Identify the artifacts directory: `~/.akm/artifacts/<project>/` or the project's designated plans folder
+4. **Discover relevant skills**: Run `akm skills search <terms>` (using terms from the project's stack, frameworks, domain) to find skills that provide expertise for this project's technology. For each relevant skill, run `akm skills load <id>` to hotload it into the current session. Then read the loaded skills to understand patterns, idioms, and common pitfalls — this knowledge informs review criteria synthesis in Phase 1.
 
-**Do NOT**: record absolute file paths, pass skill paths to subagents, or use any `specs-sync` subcommand other than `search`, `list`, `load`, `unload`, `loaded`, and `status`.
+**Do NOT**: record absolute file paths, pass skill paths to subagents, or use any `akm` subcommand other than `search`, `list`, `load`, `unload`, `loaded`, and `status`.
 
 ---
 
@@ -375,7 +375,7 @@ While the sub-orchestrator works:
 - **LINE BY LINE is the standard** — the reviewer compares proposed code against actual source
 - **Orchestrator never compacts** — context discipline through delegation, not through reading everything yourself
 - **Final review persisted** — saved to disk alongside the plan for traceability
-- **Artifacts are permanent** — written to `~/.artifacts/<project>/plans/`, never ephemeral
+- **Artifacts are permanent** — written to `~/.akm/artifacts/<project>/plans/`, never ephemeral
 - **Sequential uses fresh agents** — each task gets a NEW agent dispatch via Task tool. Pass prior plan paths in the prompt, not by reusing the same agent.
 - **Never start implementing** — this command produces plans only
-- **Skills are loaded, not passed** — use `specs-sync load <id>` to hotload skills; never pass absolute file paths to subagents
+- **Skills are loaded, not passed** — use `akm skills load <id>` to hotload skills; never pass absolute file paths to subagents

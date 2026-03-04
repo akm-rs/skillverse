@@ -1,6 +1,6 @@
 ---
 name: implementing-team
-description: "Dispatch an implementation team: Haiku messengers coordinate Opus 4.6 coders (TDD, lean) and Opus 4.6 reviewers to implement tasks from existing plans."
+description: "Dispatch an implementation team: Opus sub-orchestrator coordinate Opus 4.6 coders (TDD, lean) and Opus 4.6 reviewers to implement tasks from existing plans."
 ---
 
 # /implementing-team
@@ -22,7 +22,7 @@ Orchestrator (you — stays lean, never compacts)
 │
 ├── Phase 0: Context Gathering
 │   ├── Locate plans + spec file, read project docs
-│   ├── Skill Discovery → specs-sync search + load
+│   ├── Skill Discovery → akm skills search + load
 │   ├── Derive review criteria from spec + docs + plans
 │   ├── Ensure feature branch exists
 │   └── Detect test command
@@ -57,9 +57,9 @@ Orchestrator (you — stays lean, never compacts)
 ## Phase 0: Context Gathering
 
 1. Read project docs (CLAUDE.md, AGENTS.md) for conventions, test command, and coding style
-2. **Discover relevant skills**: Run `specs-sync search <terms>` (using terms from the project's stack, frameworks, domain) to find skills that provide expertise for this project's technology. For each relevant skill, run `specs-sync load <id>` to hotload it into the current session. Then read the loaded skills to understand patterns, idioms, and common pitfalls — this knowledge informs review criteria.
+2. **Discover relevant skills**: Run `akm skills search <terms>` (using terms from the project's stack, frameworks, domain) to find skills that provide expertise for this project's technology. For each relevant skill, run `akm load <id>` to hotload it into the current session. Then read the loaded skills to understand patterns, idioms, and common pitfalls — this knowledge informs review criteria.
 
-   **Do NOT**: record absolute file paths, pass skill paths to subagents, or use any `specs-sync` subcommand other than `search`, `list`, `load`, `unload`, `loaded`, and `status`.
+   **Do NOT**: record absolute file paths, pass skill paths to subagents, or use any `akm` subcommand other than `search`, `list`, `load`, `unload`, `loaded`, and `status`.
 3. Identify the implementation plans from the user's prompt or the artifacts directory
 4. Locate the spec file (from `/planning-team`) in ARTIFACTS_DIR — it contains the validated design decisions and user-approved review criteria
 5. Detect the test command (from project docs or common patterns like `npm test`, `pytest`, `cargo test`, `go test`, etc.)
@@ -406,7 +406,7 @@ While the sub-orchestrator works:
 - **TDD is non-negotiable** — red → green → refactor, always
 - **Lean approach** — smallest code that works, no speculative features
 - **Reviewer uses critical-code-reviewer methodology** — adversarial mindset, severity tiers (BLOCKING > REQUIRED > SUGGESTION)
-- **Review is iterated** — loop until LGTM, max 3 rounds
+- **Review is iterated** — loop until LGTM, max 5 rounds
 - **No review artifacts** — reviews are ephemeral in the agent's context, not saved to disk
 - **Decision log is mandatory** — every plan deviation or ambiguity resolution is logged and surfaced
 - **Coder self-fixes** — the same agent that wrote the code applies review fixes (has full context)
@@ -417,4 +417,4 @@ While the sub-orchestrator works:
 - **Sequential preserves tree state** — each coder works in the tree the previous one left
 - **Sequential uses fresh agents** — each task gets a NEW agent dispatch via Task tool. Pass prior context (files created, key decisions) in the prompt, not by reusing the same agent.
 - **Orchestrator never compacts** — context discipline through delegation, not through reading everything yourself
-- **Skills are loaded, not passed** — use `specs-sync load <id>` to hotload skills; never pass absolute file paths to subagents
+- **Skills are loaded, not passed** — use `akm skills load <id>` to hotload skills; never pass absolute file paths to subagents

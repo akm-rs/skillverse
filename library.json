@@ -30,7 +30,7 @@
       "type": "skill",
       "name": "archive-artifacts",
       "description": "Archive old stale LLM files in the global artifacts folder",
-      "core": true,
+      "core": false,
       "tags": [
         "artifacts",
         "cleanup",
@@ -180,7 +180,7 @@
       "type": "skill",
       "name": "describe-design",
       "description": ">",
-      "core": false,
+      "core": true,
       "tags": [
         "design"
       ],
@@ -310,7 +310,7 @@
       "type": "skill",
       "name": "find-skills",
       "description": "Helps users discover and install agent skills when they ask questions like \"how do I do X\", \"find a skill for X\", \"is there a skill that can...\", or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable skill.",
-      "core": true,
+      "core": false,
       "tags": [],
       "triggers": {},
       "source": "https://github.com/vercel-labs/skills/"
@@ -372,7 +372,7 @@
       "id": "implementing-team",
       "type": "skill",
       "name": "implementing-team",
-      "description": "\"Dispatch an implementation team: Haiku messengers coordinate Opus 4.6 coders (TDD, lean) and Opus 4.6 reviewers to implement tasks from existing plans.\"",
+      "description": "\"Dispatch an implementation team: coordinate coders and reviewers to implement tasks from existing plans.\"",
       "core": true,
       "tags": [
         "agents",
@@ -476,7 +476,7 @@
       "id": "planning-team",
       "type": "skill",
       "name": "planning-team",
-      "description": "\"Dispatch a planning team: Haiku messengers coordinate Opus planners and Opus reviewers to produce reviewed implementation plans for one or more tasks.\"",
+      "description": "\"Dispatch a planning team: Coordinate planners and reviewers to produce reviewed implementation plans for one or more tasks.\"",
       "core": true,
       "tags": [
         "agents",

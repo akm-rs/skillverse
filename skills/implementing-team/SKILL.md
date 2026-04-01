@@ -1,19 +1,17 @@
 ---
 name: implementing-team
-description: "Dispatch an implementation team: Opus sub-orchestrator coordinate Opus 4.6 coders (TDD, lean) and Opus 4.6 reviewers to implement tasks from existing plans."
+description: "Dispatch an implementation team: Sonnet sub-orchestrator coordinate Opus coders (TDD, lean) and Sonnet reviewers to implement tasks from existing plans."
 ---
 
 # /implementing-team
 
-Dispatch an implementation team to execute existing plans using TDD. A single Opus sub-orchestrator manages all coder-reviewer agents, merging, testing, and PR creation — keeping the main orchestrator lean.
+Dispatch an implementation team to execute existing plans using TDD. A single Sonnet sub-orchestrator manages all coder-reviewer agents, merging, testing, and PR creation — keeping the main orchestrator lean.
 
 ## Arguments
 
 - **mode**: `parallel` (default) or `sequential`
   - `parallel`: All tasks dispatched simultaneously, each in its own **git worktree** for true isolation. Sub-orchestrator merges branches after.
   - `sequential`: Tasks dispatched one at a time, each as a **separate, fresh agent**. Each coder works in the tree left by the previous one. Use when tasks share files or build on each other.
-
-Parse `mode` from `$ARGUMENTS`. If `$ARGUMENTS` contains `sequential`, set mode to sequential. Otherwise default to `parallel`.
 
 ## Team Structure
 
@@ -28,12 +26,12 @@ Orchestrator (you — stays lean, never compacts)
 │   └── Detect test command
 │
 └── Phase 1: Delegate to Implementation Dispatch Sub-Orchestrator
-    └── Opus sub-orchestrator (single Task agent)
+    └── Sonnet sub-orchestrator (single Task agent)
         ├── Reads spec + plans
-        ├── Dispatches one NEW Opus Coder-Reviewer agent PER task
+        ├── Dispatches one NEW Opus Coder agent PER task
         │   ├── Implements with TDD (red → green → refactor)
         │   ├── Commits implementation
-        │   ├── Dispatches Opus Reviewer (critical-code-reviewer methodology)
+        │   ├── Dispatches Sonnet Reviewer (critical-code-reviewer methodology)
         │   ├── Applies fixes, loops until LGTM (max 3 rounds)
         │   └── Reports: status, files, tests, decision log
         ├── Merges worktree branches (parallel mode)
@@ -47,7 +45,7 @@ Orchestrator (you — stays lean, never compacts)
 1. **Locate the plans and spec** — each task must have an existing plan. The spec file from `/planning-team` should exist in ARTIFACTS_DIR. If no plan exists, stop and tell the user to run `/planning-team` first.
 2. **Prepare context** — read project docs for conventions, detect the test command, discover and load relevant skills, derive review criteria
 3. **Create feature branch** if on main: `git checkout -b feature/<description>`
-4. **Delegate all implementation work** — dispatch a single Opus sub-orchestrator that handles coder-reviewer dispatch, merging, testing, pushing, and PR creation
+4. **Delegate all implementation work** — dispatch a single Sonnet sub-orchestrator that handles coder-reviewer dispatch, merging, testing, pushing, and PR creation
 5. **Present results** — relay the sub-orchestrator's summary and PR URL to the user
 
 **Context discipline**: After Phase 0, you delegate ALL implementation work. You never read code changes or plan details. Your context stays lean: context gathering notes + summary from sub-orchestrator.
@@ -62,7 +60,7 @@ Orchestrator (you — stays lean, never compacts)
    **Do NOT**: record absolute file paths, pass skill paths to subagents, or use any `akm` subcommand other than `search`, `list`, `load`, `unload`, `loaded`, and `status`.
 3. Identify the implementation plans from the user's prompt or the artifacts directory
 4. Locate the spec file (from `/planning-team`) in ARTIFACTS_DIR — it contains the validated design decisions and user-approved review criteria
-5. Detect the test command (from project docs or common patterns like `npm test`, `pytest`, `cargo test`, `go test`, etc.)
+5. Detect the test command (from project docs or common patterns like `npm test`, `pytest`, `cargo test`, `go test`, `Rscript -e 'devtools::test()'` etc.)
 6. Ensure you're on a feature branch. If on main, create one: `git checkout -b feature/<description>`
 7. **Derive review criteria**: Synthesize review criteria from:
    - **Spec file**: The review criteria co-created with the user during planning
@@ -76,7 +74,7 @@ Orchestrator (you — stays lean, never compacts)
 
 ## Phase 1: Delegate to Implementation Dispatch Sub-Orchestrator
 
-Dispatch a **single Opus sub-orchestrator** (`model: opus`, `subagent_type: general-purpose`) that manages all implementation work.
+Dispatch a **single Sonnet sub-orchestrator** (`model: sonnet`, `subagent_type: general-purpose`) that manages all implementation work.
 
 This delegation keeps your context lean. You do NOT read code changes, manage review rounds, merge branches, or track individual coder agents. The sub-orchestrator handles everything and returns a summary.
 
@@ -143,17 +141,17 @@ For sequential mode with 3 tasks, you do this:
 
 ```
 # Task 1 — dispatch NEW agent
-Task(prompt="You are a coder-reviewer agent... Task: Task 1 ...", model=opus)
+Task(prompt="You are a coder-reviewer agent... Task: Task 1 ...")
 → Wait for completion → receive report
 
 # Task 2 — dispatch NEW agent (fresh context)
 Task(prompt="You are a coder-reviewer agent... Task: Task 2 ...
-  Prior context: Task 1 created R/foo.R with functions bar(), baz()...", model=opus)
+  Prior context: Task 1 created R/foo.R with functions bar(), baz()...")
 → Wait for completion → receive report
 
 # Task 3 — dispatch NEW agent (fresh context)
 Task(prompt="You are a coder-reviewer agent... Task: Task 3 ...
-  Prior context: Tasks 1-2 created R/foo.R, R/qux.R ...", model=opus)
+  Prior context: Tasks 1-2 created R/foo.R, R/qux.R ...")
 → Wait for completion → receive report
 
 # All done — merge/verify/push/PR
@@ -241,7 +239,7 @@ If the plan is followed exactly with no surprises, the decision log is empty. Th
 
 ### Step 5: Dispatch Reviewer
 
-After all plan steps are implemented and tests pass, dispatch an **Opus Reviewer subagent** (model: opus, subagent_type: code-reviewer) with this prompt:
+After all plan steps are implemented and tests pass, dispatch a **Sonnet Reviewer subagent** (model: sonnet, subagent_type: code-reviewer) with this prompt:
 
 ---
 You are a critical code reviewer. Review the implementation against the plan using an adversarial mindset — guilty until proven exceptional.

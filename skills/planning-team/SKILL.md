@@ -1,6 +1,6 @@
 ---
 name: planning-team
-description: "Brainstorm with the user, then dispatch Opus planners and reviewers to produce iterated-reviewed implementation plans for one or more tasks."
+description: "Brainstorm with the user, then dispatch planners and reviewers to produce iterated-reviewed implementation plans for one or more tasks."
 ---
 
 # /planning-team
@@ -12,8 +12,6 @@ Brainstorm interactively with the user to produce a validated spec, then dispatc
 - **mode**: `parallel` (default) or `sequential`
   - `parallel`: All plan-writing tasks dispatched simultaneously. Use when tasks are independent.
   - `sequential`: Tasks dispatched one at a time, each as a **separate, fresh agent**. Each receives the previous task's plan as context. Use when tasks depend on each other.
-
-Parse `mode` from `$ARGUMENTS`. If `$ARGUMENTS` contains `sequential`, set mode to sequential. Otherwise default to `parallel`.
 
 ## Team Structure
 
@@ -32,11 +30,11 @@ Orchestrator (you — stays lean, never compacts)
 │   └── Output: spec file path + task list
 │
 └── Phase 2: Delegate to Planning Dispatch Sub-Orchestrator
-    └── Opus sub-orchestrator (single Task agent)
+    └── sub-orchestrator (single Task agent)
         ├── Reads spec file
-        ├── Dispatches one NEW Opus Planner-Reviewer agent PER task
+        ├── Dispatches one NEW Planner-Reviewer agent PER task
         │   ├── Reads spec + source files, writes plan
-        │   ├── Dispatches Opus Reviewer (critical-code-reviewer methodology)
+        │   ├── Dispatches Reviewer (critical-code-reviewer methodology)
         │   ├── Applies fixes, loops until READY (max 3 rounds)
         │   └── Reports status
         ├── Collects results
@@ -64,7 +62,7 @@ Before engaging the user:
 1. Read project docs (CLAUDE.md, AGENTS.md, README) for conventions and structure
 2. Dispatch an **Explore subagent** (`subagent_type: Explore`) to read source files relevant to the user's prompt
 3. Identify the artifacts directory: `~/.akm/artifacts/<project>/` or the project's designated plans folder
-4. **Discover relevant skills**: Run `akm skills search <terms>` (using terms from the project's stack, frameworks, domain) to find skills that provide expertise for this project's technology. For each relevant skill, run `akm skills load <id>` to hotload it into the current session. Then read the loaded skills to understand patterns, idioms, and common pitfalls — this knowledge informs review criteria synthesis in Phase 1.
+4. **Discover relevant skills**: Run `akm skills search <terms>` (using terms from the project's stack, frameworks, domain) to find skills that provide expertise for this task. For each relevant skill, run `akm skills load <id>` to hotload it into the current session. Then invoke the loaded skills to understand patterns, idioms, and common pitfalls — this knowledge informs review criteria synthesis in Phase 1.
 
 **Do NOT**: record absolute file paths, pass skill paths to subagents, or use any `akm` subcommand other than `search`, `list`, `load`, `unload`, `loaded`, and `status`.
 
@@ -72,14 +70,14 @@ Before engaging the user:
 
 ## Phase 1: Brainstorming (Interactive)
 
-**Goal**: Produce a validated spec, review criteria, and task list. ALL design decisions are made HERE, not by the planner.
+**Goal**: Produce a validated specification, review criteria, and task list. ALL design decisions are made HERE, not by the planner.
 
 **This phase is non-negotiable. It always happens before any plan dispatch.**
 
 ### Process
 
 1. **Present understanding** — briefly summarize what the Explore subagent found and your initial read of the task
-2. **Ask questions one at a time** — clarify design decisions, scope, constraints, naming
+2. **Ask questions one at a time, with AskUserInput** — clarify design decisions, scope, constraints, naming
    - Prefer multiple choice when possible
    - ONE question per message — never batch questions
    - Focus on: purpose, composition model, naming conventions, scope boundaries, edge cases
@@ -123,7 +121,7 @@ During brainstorming, actively push back on unnecessary complexity. Remove featu
 
 ## Phase 2: Delegate to Planning Dispatch Sub-Orchestrator
 
-After the spec is saved, dispatch a **single Opus sub-orchestrator** (`model: opus`, `subagent_type: general-purpose`) that manages all plan-review work.
+After the spec is saved, dispatch a **single sub-orchestrator** (`model: sonnet`, `subagent_type: general-purpose`) that manages all plan-review work.
 
 This delegation keeps your context lean. You do NOT read plans, manage review rounds, or track individual planner agents. The sub-orchestrator handles everything and returns a summary.
 
@@ -182,13 +180,13 @@ Task(prompt="You are a planner-reviewer agent... Task: Task 1 ...", model=opus)
 
 # Task 2 — dispatch NEW agent (fresh context)
 Task(prompt="You are a planner-reviewer agent... Task: Task 2 ...
-  Prior work: Task 1 plan at /path/to/task-1-plan.md ...", model=opus)
+  Prior work: Task 1 plan at /path/to/task-1-plan.md ...")
 → Wait for completion → receive report
 
 # Task 3 — dispatch NEW agent (fresh context)
 Task(prompt="You are a planner-reviewer agent... Task: Task 3 ...
   Prior work: Task 1 plan at /path/to/task-1-plan.md,
-              Task 2 plan at /path/to/task-2-plan.md ...", model=opus)
+              Task 2 plan at /path/to/task-2-plan.md ...")
 → Wait for completion → receive report
 
 # All done — report to orchestrator
@@ -258,7 +256,7 @@ The plan should be detailed enough that implementation is near copy-paste trivia
 
 ### Step 3: Dispatch Reviewer
 
-Dispatch a **Task subagent** (model: opus, subagent_type: code-reviewer) with this prompt:
+Dispatch a **Task subagent** (model: sonnet, subagent_type: code-reviewer) with this prompt:
 
 ---
 You are a critical plan reviewer. Review the implementation plan against the actual source code using an adversarial mindset — guilty until proven exceptional.
